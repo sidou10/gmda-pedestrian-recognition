@@ -27,7 +27,7 @@ def save_pairwise_btnck_dist(dgms_path, save_path, dimension):
     """
 
     # Load diagrams
-    dgms = np.load(os.path.join(dgms_path, "persistence_diagrams_{}dim.npy".format(dimension)))[:2]
+    dgms = np.load(os.path.join(dgms_path, "persistence_diagrams_{}dim.npy".format(dimension)))
 
     # Number of observations
     nb_individuals = dgms.shape[0]
