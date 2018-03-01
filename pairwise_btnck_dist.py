@@ -11,13 +11,12 @@ import os
 sys.path.append("/Users/sidou/Desktop/gmda/gudhi/build/cython/")
 
 def save_pairwise_btnck_dist(dgms_path, save_path, dimension):
-    """Computes the bottleneck distances between each pair of diagrams
-    in the dgms_path.
+    """Computes the bottleneck distances between each pair of diagrams.
     
     Parameters
     ----------
-    dgms_path : string
-        Path of the directory of the .npy file containing persistance diagrams.
+    dgms : array
+        Persistence diagrams.
     save_path : string
         Path of the directory where to save the .csv file containing pairwise 
         bottleneck distances.
@@ -25,11 +24,6 @@ def save_pairwise_btnck_dist(dgms_path, save_path, dimension):
         Dimension of the persistence diagrams to consider.
 
     """
-
-    # Load diagrams
-    dgms = np.load(os.path.join(dgms_path, "persistence_diagrams_{}dim.npy"\
-                                .format(dimension)))
-
     # Number of observations
     nb_individuals = dgms.shape[0]
 
@@ -64,6 +58,13 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+    # Path of the .npy file of the persistence diagrams
+    dgms_path = os.path.join(args.dgms, "persistence_diagrams_{}dim.npy"\
+                             .format(dimension))
+
+    # Persistence diagrams
+    dgms = np.load(dgms_path)
+
     # Save the file
-    save_pairwise_btnck_dist(args.dgms, args.save, args.dim)
+    save_pairwise_btnck_dist(dgms, args.save, args.dim)
 	

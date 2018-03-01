@@ -85,13 +85,13 @@ def persistence_landscape(dgm, xmin, xmax, n_nodes, n_ld, plot_first=False):
 
     return landscapes
 
-def compute_landscape_features(dgms_path, xmin=0, xmax=0.4, n_nodes=200, n_ld=5):
+def compute_landscape_features(dgms, xmin=0, xmax=0.4, n_nodes=200, n_ld=5):
     """Compute the landscape features from the pre-computed persistence diagrams.
     
     Parameters
     ----------
-    dgms_path : str
-        Path of the .npy file of the persistence diagrams.
+    dgms : array
+        Persistence diagrams.
     xmin : float
         Left endpoint of the interval.
     xmax : float
@@ -107,8 +107,6 @@ def compute_landscape_features(dgms_path, xmin=0, xmax=0.4, n_nodes=200, n_ld=5)
         Persistence landscape observation matrix;
     """
     features = []
-
-    dgms = np.load(dgms_path)
 
     for dgm in dgms:
         landscapes = persistence_landscape(dgm, xmin, xmax, n_nodes, n_ld).flatten()
@@ -136,8 +134,13 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     dimension = args.dim
+
+    # Path of the .npy file of the persistence diagrams
     dgms_path = os.path.join(args.dgms, "persistence_diagrams_{}dim.npy"\
                              .format(dimension))
+
+    # Persistence diagrams
+    dgms = np.load(dgms_path)
 
     landscapes_features = compute_landscape_features(dgms_path, xmin=args.xmin, 
     	                                             xmax=args.xmax, 
