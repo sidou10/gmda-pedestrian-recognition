@@ -122,7 +122,7 @@ if __name__ == "__main__":
     parser.add_argument("--dgms", help="path containing the directory of the file \
     	                with the persistence diagrams", required=True)
     parser.add_argument("--dim", help="dimension of the persistence diagrams", 
-    	                type=int)
+    	                type=int, choices=[0, 1])
     parser.add_argument("--save", help="path of the directory where to save the \
     	                persistence landscape observation matrix as a numpy array")
     parser.add_argument("--xmin", help="left endpoint of the interval", 
@@ -136,13 +136,15 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     dimension = args.dim
-    dgms_path = os.path.join(args.dgms, "persistence_diagrams_{}dim.npy".format(dimension))
+    dgms_path = os.path.join(args.dgms, "persistence_diagrams_{}dim.npy"\
+                             .format(dimension))
 
     landscapes_features = compute_landscape_features(dgms_path, xmin=args.xmin, 
     	                                             xmax=args.xmax, 
     	                                             n_nodes=args.n_nodes, 
     	                                             n_ld=args.n_ld)
 
-    np.save(os.path.join(args.save, "persistence_landscapes_{}dim.npy".format(dimension)), landscapes_features)
+    np.save(os.path.join(args.save, "persistence_landscapes_{}dim.npy"\
+                         .format(dimension)), landscapes_features)
 
 
