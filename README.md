@@ -9,7 +9,7 @@ in R3: each time series represents the 3 coordinates of the acceleration of the 
 a coordinate system attached to the sensor. As, the smartphone was carried in unknown different positions
 and was not fixed, these time series cannot be compared coordinates by coordinates. Using a sliding window,
 each series has been splitted in a list of 100 times series made of 200 consecutive points, that are stored in
-data A, data B and data C. To each set of 200 points is associated a label A, B or C stored in label. The objective is to compute the persistence diagrams of these 3D point clouds and use them to achieve a pedestrian recognition task (supervised setting).
+data A, data B and data C. To each set of 200 points is associated a label A, B or C stored in label. The objective is to compute the persistence diagrams of these 3D point clouds and use them to achieve a pedestrian recognition task.
 
 ## Command lines
 
@@ -30,7 +30,7 @@ optional arguments:
 ### Compute and save pairwise bottleneck distances (Q3)
 The ```pairwise_btnck_dist.py``` script computes and saves the pairwise bottleneck distances matrix using the previously computed diagrams. 
 
-NB: this function is computationally intensive (around 7h for 300 persistence diagram). The output files are available in the pairwise_bottleneck_distances folder.
+NB: this function is computationally intensive (around 7h for 300 persistence diagrams). The output files are available in the pairwise_bottleneck_distances folder.
 
 ```
 usage: pairwise_btnck_dist.py [-h] --dgms DGMS --dim {0,1} --save SAVE
@@ -78,5 +78,4 @@ optional arguments:
   --dim {0,1,2}        dimension to consider consider for the features
   --features FEATURES  path of the directory which contains the features
   --save SAVE          path where to save the model
-```
-                     xmax]
+``
