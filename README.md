@@ -11,6 +11,14 @@ and was not fixed, these time series cannot be compared coordinates by coordinat
 each series has been splitted in a list of 100 times series made of 200 consecutive points, that are stored in
 data A, data B and data C. To each set of 200 points is associated a label A, B or C stored in label. The objective is to compute the persistence diagrams of these 3D point clouds and use them to achieve a pedestrian recognition task.
 
+
+
+## Requirements
+In order to install the python packages used in this project, please run:
+
+```pip install -r requirements.txt```
+
+
 ## Command lines
 
 ### Compute and save persistence diagrams (Q2)
