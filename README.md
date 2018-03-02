@@ -14,10 +14,11 @@ data A, data B and data C. To each set of 200 points is associated a label A, B 
 
 
 ## Requirements
-In order to install the python packages used in this project, please run:
+In order to install the python packages used in this project (except from gudhi), please run:
 
 ```pip install -r requirements.txt```
 
+To install the python version of gudhi, please use [this link](http://gudhi.gforge.inria.fr/python/latest/installation.html).
 
 ## Command lines
 
