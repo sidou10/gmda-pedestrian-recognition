@@ -56,8 +56,8 @@ def persistence_landscape(dgm, xmin, xmax, n_nodes, n_ld, plot_first=False):
     
     Returns
     -------
-    TYPE
-        Description
+    array, shape = [n_ld, n_nodes]
+        Values of the first n_ld landscapes of dgm on the nodes of the grid.
     """
     # Number of points in the persistence diagram
     n_points = len(dgm)
